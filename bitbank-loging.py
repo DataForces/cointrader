@@ -9,7 +9,6 @@ Created on Sat Jan 20 20:39:15 2018
 import numpy as np
 import pandas as pd
 import time
-import schedule
 import os
 import glob
 import json

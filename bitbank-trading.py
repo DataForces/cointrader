@@ -5,6 +5,15 @@ Created on Sun Jan 21 01:19:30 2018
 
 @author: cc
 """
+import numpy as np
+import pandas as pd
+import time
+import os
+import glob
+import json
+import python_bitbankcc
+import threading
+
 
 def make_decison():
     # make decison on 30 min trading records
@@ -30,4 +39,8 @@ def train_model():
 if __name__ == "__main__":
     trader_key = 'c406977f-6cc1-4751-a059-f79124328fb3'
     trader_secret = '7cc757e9cf73fcee9e30ebd157816fc35b7a9ac14f10bdfd07bd426b0501b211'
-
+    schedule.every(15).minutes.do(make_decison)
+    schedule.every().day.at("0:00").do(train_model)
+    while True:
+        schedule.run_pending()
+        time.sleep(60)
