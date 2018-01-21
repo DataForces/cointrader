@@ -37,7 +37,7 @@ def checkout():
     coin_name, currency = pair.split("_")
     cash = assets[assets['asset']==currency]['free_amount'].values[0]
     coins = assets[assets['asset']==coin_name]['free_amount'].values[0]
-    print("[info] Cash: {:.2f} jpy; Coins: {:.2f} .".format(cash, coins))
+    print("[asset] Cash: {:.2f} jpy; Coins: {:.2f} .".format(cash, coins))
     sys.stdout.flush()
     return cash, coins
 
@@ -54,7 +54,7 @@ def make_decison(infos):
         clf, quality = train_model()
 
     if float(quality['training_acc']) < 0.8:
-        print("[info] Skip making decison due to poor model accuracy.")
+        print("[prediction] Skip making decison due to poor model accuracy.")
         sys.stdout.flush()
         train_model()
         return orders
@@ -65,17 +65,17 @@ def make_decison(infos):
         pred_proba = clf.predict_proba(record)
         trend = trends[np.argmax(pred_proba)]
         confidence = np.max(pred_proba)
-        print("[info] Prediction of is {}, confidence is {:.02f}".
+        print("[prediction] Prediction of is {}, confidence is {:.02f}".
               format(trend, confidence))
         sys.stdout.flush()
         if trend == "asce" and confidence > 0.5:
             # generate order
             recommend_price = max(infos['bids_max_ref_val'].values)+1
-            recommend_amount = max(infos['asks_min_ref_vol'].values)/2
+            recommend_amount = max(infos['asks_min_ref_vol'].values)/5
             cash_amount, nb_coins = checkout()
             buy_capacity = cash_amount / recommend_price
-            order_amount = min(buy_capacity/2, recommend_amount)
-            if order_amount < 0.1:
+            order_amount = min(buy_capacity/4, recommend_amount)
+            if nb_coins > 50 or order_amount < 0.01:
                 orders = []
             else:
                 order = {'pair': pair,
@@ -85,48 +85,38 @@ def make_decison(infos):
                          'type': 'limit'}
                 orders.append(order)
                 return orders
-        elif trend == "desc" and confidence > 0.5:
+        elif trend == "desc" and confidence >= 0.5:
             # sell out when very confidence for descreasing
             # sell out at market price
             recommend_price = min(infos['asks_min_ref_val'].values)-1
-            recommend_amount = min(infos['bids_max_ref_vol'].values)/2
+            recommend_amount = min(infos['bids_max_ref_vol'].values)/5
             cash_amount, nb_coins = checkout()
-            if recommend_amount < nb_coins:
+            order_amount = min(nb_coins/3, recommend_amount)
+            if nb_coins > 0.03:
                 order_1 = {'pair': pair,
                            'price': recommend_price,
-                           'amount': recommend_amount,
+                           'amount': nb_coins-order_amount,
                            'side': 'sell',
                            'type': 'limit'}
                 order_2 = {'pair': pair,
                            'price': recommend_price,
-                           'amount': nb_coins-recommend_amount,
+                           'amount': order_amount,
                            'side': 'sell',
                            'type': 'market'}
                 orders.append(order_1)
                 orders.append(order_2)
                 return orders
             else:
-                order_1 = {'pair': pair,
-                           'price': recommend_price,
-                           'amount': nb_coins/2,
-                           'side': 'sell',
-                           'type': 'limit'}
-                order_2 = {'pair': pair,
-                           'price': recommend_price,
-                           'amount': nb_coins/2,
-                           'side': 'sell',
-                           'type': 'market'}
-                orders.append(order_1)
-                orders.append(order_2)
+                orders = []
                 return orders
-        elif trend == "desc" and 0.5 >= confidence > 0.3:
+        elif trend == "desc" and 0.5 > confidence > 0.3:
             # sell out when very confidence for descreasing
             # sell out at market price
             recommend_price = min(infos['asks_min_ref_val'].values)-1
-            recommend_amount = min(infos['bids_max_ref_vol'].values)/2
+            recommend_amount = min(infos['bids_max_ref_vol'].values)/5
             cash_amount, nb_coins = checkout()
-            order_amount = max(nb_coins/2, recommend_amount)
-            if order_amount < 0.1:
+            order_amount = min(nb_coins/4, recommend_amount)
+            if order_amount < 0.01:
                 orders = []
                 return orders
             else:
@@ -151,8 +141,8 @@ def send_orders(orders):
                        order['side'],
                        order['type'])
         time.sleep(20)
-        print("[info] Sending order:")
-        print("[info] Pair:{} ; Price:{} ; Amount:{} ; Side:{} ; Type:{}.".
+        print("[order] Sending order:")
+        print("[order] Pair:{} ; Price:{} ; Amount:{} ; Side:{} ; Type:{}.".
               format(order['pair'],
                      '{:.2f}'.format(order['price']),
                      '{:.2f}'.format(order['amount']),
@@ -184,9 +174,9 @@ def train_model():
         clf = SVC(probability=True)
     clf.fit(X_train, y_train)
     score = clf.score(X_train, y_train)
-    print("[info] Training model at {}-{}.".format(cur_date, cur_time))
-    print("[info] Training model using dataset of {} with {}-records".format(dataset, len(y_train)))
-    print("[info] Training accuracy: %.03f" % score)
+    print("[model] Training model at {}-{}.".format(cur_date, cur_time))
+    print("[model] Training model using dataset of {} with {}-records".format(dataset, len(y_train)))
+    print("[model] Training accuracy: %.03f" % score)
     sys.stdout.flush()
     # save model
     joblib.dump(clf, "./models/trend_{}_clf.pkl".format(pair))
