@@ -11,10 +11,8 @@ import pandas as pd
 import time
 import os
 import glob
-import json
 import python_bitbankcc
-import threading
-
+import argparse
 
 
 def access_info(pair):
@@ -55,34 +53,35 @@ def access_info(pair):
         # record -> [buy, sell, high, low, last, sells_min_ref_vol, sells_min_ref_val, buys_max_ref_vol, buys_max_ref_val]
         record = ticker_res+[sells_min_ref_vol, sells_min_ref_val, buys_max_ref_vol, buys_max_ref_val]
         records.append(record)
-    cur_date, cur_time = time.strftime("%Y%m%d,%H:%M").split(',')
-    log_dir = './{}/log/{}/'.format(pair, cur_date)
-    log_file = log_dir + '_{}.csv'.format(cur_time)
+    cur_date, cur_time = time.strftime("%Y%m%d,%H-%M").split(',')
+    log_dir = './log/{}/{}/'.format(pair, cur_date)
+    log_file = log_dir + 'log_{}.csv'.format(cur_time)
     if not os.path.exists(log_dir):
-        os.mkdir(log_dir)
+        os.makedirs(log_dir)
     records = pd.DataFrame(records,
                            columns=['buy', 'sell', 'high', 'low', 'last',
                                     'sells_min_ref_vol', 'sells_min_ref_val',
                                     'buys_max_ref_vol', 'buys_max_ref_val'])
     records.to_csv(log_file, index=False)
-    print("Saving log at {}".format(cur_time))
+    print("Saving log of {} at {}".format(pair, cur_time))
     return 0
-
-
-def multi_access():
-    t1 = threading.Thread(target=access_info(trade_pairs[0]))
-    t2 = threading.Thread(target=access_info(trade_pairs[1]))
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()
-
-    return 0
-
 
 
 if __name__ == "__main__":
-    trade_pairs = ['xrp_jpy', 'mona_jpy']
+    # posiblle pair (jpy) for trading of bitbank.cc
+    avalible_coins = ['xrp', 'mona', 'bcc', 'btc']
+    parser = argparse.ArgumentParser(description='Argument for loging')
+    parser.add_argument('-coin', type=str, default="xrp", dest="coin",
+                        help='coin in [xrp, mona, bcc, btc] for loging ')
+    args = parser.parse_args()
+    if args.coin not in avalible_coins:
+        raise ValueError ("coin should in {}".format(args.coin, ','.join(avalible_coins)))
+    pair = '{}_jpy'.format(args.coin)
+    print("Loging info of {} ...".format(pair))
     while True:
-        multi_access()
+        try:
+            access_info(pair)
+        except:
+            print('API Error')
+            # wait 15 min and continue
+            time.sleep(15*60)
