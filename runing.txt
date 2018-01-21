@@ -1,0 +1,23 @@
+Autotrading of mona_jpy in bitbank...
+[info] Training model at 20180122-03-22.
+[info] Training model using dataset of 20180121-20180122 with 37-records
+[info] Training accuracy: 1.000
+[info] Saving log of mona_jpy at 20180122-03-27
+[info] Prediction of is desc, confidence is 0.51
+[info] Cash: 0.01 jpy; Coins: 76.09 .
+[info] Sending order:
+[info] Pair:mona_jpy ; Price:797.82 ; Amount:38.04 ; Side:sell ; Type:limit.
+[info] Sending order:
+[info] Pair:mona_jpy ; Price:797.82 ; Amount:38.04 ; Side:sell ; Type:market.
+[info] Saving log of mona_jpy at 20180122-03-33
+[info] Prediction of is desc, confidence is 0.51
+[info] Cash: 29482.28 jpy; Coins: 38.05 .
+[info] Sending order:
+[info] Pair:mona_jpy ; Price:778.68 ; Amount:19.02 ; Side:sell ; Type:limit.
+[info] Sending order:
+[info] Pair:mona_jpy ; Price:778.68 ; Amount:19.02 ; Side:sell ; Type:market.
+[info] Saving log of mona_jpy at 20180122-03-39
+[info] Prediction of is desc, confidence is 0.51
+[info] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Sending order:
+[info] Pair:mona_jpy ; Price:792.66 ; Amount:0.00 ; Side:sell ; Type:limit.

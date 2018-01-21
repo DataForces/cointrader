@@ -10,6 +10,7 @@ import pandas as pd
 import time
 import schedule
 import os
+import sys
 import glob
 import json
 import python_bitbankcc as bitbankcc
@@ -37,6 +38,7 @@ def checkout():
     cash = assets[assets['asset']==currency]['free_amount'].values[0]
     coins = assets[assets['asset']==coin_name]['free_amount'].values[0]
     print("[info] Cash: {:.2f} jpy; Coins: {:.2f} .".format(cash, coins))
+    sys.stdout.flush()
     return cash, coins
 
 
@@ -51,26 +53,27 @@ def make_decison(infos):
     else:
         clf, quality = train_model()
 
-    if quality['training_acc'] < 0.8:
+    if float(quality['training_acc']) < 0.8:
         print("[info] Skip making decison due to poor model accuracy.")
+        sys.stdout.flush()
         train_model()
         return orders
     else:
         record = infos[price_related].values
         record = record - record[0, :]
         record = record.reshape(1, -1)[:, 5:]
-        predit = clf.predict(record)
         pred_proba = clf.predict_proba(record)
         trend = trends[np.argmax(pred_proba)]
         confidence = np.max(pred_proba)
         print("[info] Prediction of is {}, confidence is {:.02f}".
               format(trend, confidence))
+        sys.stdout.flush()
         if trend == "asce" and confidence > 0.5:
             # generate order
             recommend_price = max(infos['bids_max_ref_val'].values)+1
             recommend_amount = max(infos['asks_min_ref_vol'].values)/2
             cash_amount, nb_coins = checkout()
-            buy_capacity = cash_amount / order_price
+            buy_capacity = cash_amount / recommend_price
             order_amount = min(buy_capacity/2, recommend_amount)
             if order_amount < 0.1:
                 orders = []
@@ -143,28 +146,37 @@ def send_orders(orders):
     # make orders base on the decison
     for order in orders:
         tradeApi.order(order['pair'],
-                       ':.2f'.format(order['price']),
-                       ':.2f'.format(order['amount']),
+                       '{:.2f}'.format(order['price']),
+                       '{:.2f}'.format(order['amount']),
                        order['side'],
                        order['type'])
         time.sleep(20)
+        print("[info] Sending order:")
+        print("[info] Pair:{} ; Price:{} ; Amount:{} ; Side:{} ; Type:{}.".
+              format(order['pair'],
+                     '{:.2f}'.format(order['price']),
+                     '{:.2f}'.format(order['amount']),
+                     order['side'],
+                     order['type']))
+        sys.stdout.flush()
     return 0
 
 
 def train_model():
     # train models for making prediction
     cur_date, cur_time = time.strftime("%Y%m%d,%H-%M").split(',')
-    X_train_cur, y_train_cur = np.array([]), np.array([])
+    X_train_cur, y_train_cur = np.array([]), []
     if os.path.exists("./log/{}/{}/".format(pair, cur_date)):
         X_train_cur, y_train_cur = generate_training_data(cur_date)
     prev_date = str(int(cur_date)-1)
     X_train_prev, y_train_prev = generate_training_data(prev_date)
 
-    if y_train_cur.shape[0] == 0:
+    if len(y_train_cur) == 0:
         X_train, y_train = X_train_prev, y_train_prev
         dataset = prev_date
     else:
-        X_train, y_train = np.concatenate(X_train_cur, X_train_prev), np.concatenate(y_train_cur, y_train_prev)
+        X_train = np.concatenate((X_train_cur, X_train_prev), axis=0)
+        y_train = y_train_cur+y_train_prev
         dataset = '{}-{}'.format(prev_date, cur_date)
     if os.path.exists("./models/trend_{}_clf.pkl".format(pair)):
         clf = joblib.load("./models/trend_{}_clf.pkl".format(pair))
@@ -172,8 +184,10 @@ def train_model():
         clf = SVC(probability=True)
     clf.fit(X_train, y_train)
     score = clf.score(X_train, y_train)
-    print("[info] Training model at {} , {} with dataset of {}".format(cur_date, cur_time, dataset))
+    print("[info] Training model at {}-{}.".format(cur_date, cur_time))
+    print("[info] Training model using dataset of {} with {}-records".format(dataset, len(y_train)))
     print("[info] Training accuracy: %.03f" % score)
+    sys.stdout.flush()
     # save model
     joblib.dump(clf, "./models/trend_{}_clf.pkl".format(pair))
     quality = {"training_acc":score}
@@ -186,7 +200,7 @@ def generate_training_data(date):
     log_files = glob.glob(os.path.join("./log/{}/{}/".format(pair, date),"*.csv"))
     if len(log_files) == 1:
         # return empty array when there is one log
-        return np.array([]), np.array([])
+        return np.array([]), []
     else:
         records_x = []
         for log in log_files:
@@ -227,6 +241,7 @@ if __name__ == "__main__":
     if pair not in avalible_pairs:
         raise ValueError("Coin of {} to jpy is not avaliable in {}".format(args.coin, args.platform))
     print("Autotrading of {} in {}...".format(pair,  args.platform))
+    sys.stdout.flush()
     price_related = ['buy','sell','last',
                      'sells_min_ref_val', 'buys_max_ref_val']
     order_related = ['asks_min_ref_val', 'bids_max_ref_val',
@@ -236,20 +251,12 @@ if __name__ == "__main__":
                                config['{}-ref'.format(args.platform)]['secret'])
     tradeApi = bitbankcc.private(config['{}-trade'.format(args.platform)]['key'],
                                  config['{}-trade'.format(args.platform)]['secret'])
-    assets = refApi.get_asset()["assets"]
-    assets = pd.DataFrame(assets)
-    assets[['free_amount', 'locked_amount','onhand_amount']] = assets[['free_amount', 'locked_amount','onhand_amount']].astype(np.float32)
-
-    active_orders = refApi.get_active_orders(pair)['orders']
-    if active_orders:
-        # cancel active orders
-        active_orders = pd.DataFrame(active_orders)
-        for idx, active_order in active_orders.iterrows():
-            tradeApi.cancel_order(pair, str(active_order["order_id"]))
-
-    schedule.every().day.at("02:15").do(train_model)
+    # initial training of the model
+    train_model()
+    schedule.every().day.at("01:30").do(train_model)
     while True:
         schedule.run_pending()
+        time.sleep(1)
         try:
             infos = access_info(pair, 10)
             orders = make_decison(infos)
@@ -257,5 +264,5 @@ if __name__ == "__main__":
                 send_orders(orders)
         except:
             print("ERROR IN API, Wait 10 min")
+            sys.stdout.flush()
             time.sleep(60*5)
-        time.sleep(1)

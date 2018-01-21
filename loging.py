@@ -10,10 +10,7 @@ import numpy as np
 import pandas as pd
 import time
 import os
-import glob
-import json
 import python_bitbankcc as bitbankcc
-import argparse
 
 
 def access_info(pair, interval=10):
@@ -84,7 +81,8 @@ def access_info(pair, interval=10):
                                     'asks_min_ref_vol', 'asks_min_ref_val',
                                     'bids_max_ref_vol', 'bids_max_ref_val'])
     records.to_csv(log_file, index=False)
-    print("Saving log of {} at {}".format(pair, cur_time))
+    print("[info] Saving log of {} at {}-{}".format(pair, cur_date, cur_time))
+    sys.stdout.flush()
     return records
 
 
