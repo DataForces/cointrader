@@ -8,6 +8,6 @@
 		"secret": "319fe4fef3a0da46fa5d5d0cf8e4f7ee44f357363ade8866a627848c88ac5fad"
 	},
 	"bitbank": {
-		"trade_pairs": ["btc_jpy", "mona_jpy", "xrp_jpy", "bcc_jpy"]
+		"coins": ["mona", "xrp", "btc", "bcc"]
 	}
 }

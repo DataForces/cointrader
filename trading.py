@@ -34,15 +34,32 @@ def checkout():
     assets = refApi.get_asset()["assets"]
     assets = pd.DataFrame(assets)
     assets[['free_amount', 'locked_amount','onhand_amount']] = assets[['free_amount', 'locked_amount','onhand_amount']].astype(np.float32)
-    coin_name, currency = pair.split("_")
-    cash = assets[assets['asset']==currency]['free_amount'].values[0]
-    coins = assets[assets['asset']==coin_name]['free_amount'].values[0]
-    print("[asset] Cash: {:.2f} jpy; Coins: {:.2f} .".format(cash, coins))
+    coin_name = pair.split("_")[0]
+    cash = assets[assets['asset']=="jpy"]['free_amount'].values[0]
+    coin_asset = {}
+    coin_record = []
+    total = cash
+    query_time = time.strftime("%Y%m%d-%H-%M")
+    for _coin in tradable_coins:
+        nb_coin = assets[assets['asset']==_coin]['free_amount'].values[0]
+        coin_jpy = pubapi.get_ticker('{}_jpy'.format(_coin))['last']
+        coin_asset[_coin] = [nb_coin, float(coin_jpy)]
+        coin_record += coin_asset[_coin]
+        total += nb_coin * coin_jpy
+    print("[asset] Cash(JPY):{:.2f}; MONA-Coins:{:.2f}; XRP-Coins:{:.2f}; BTC-Coins:{:.2f}; BCC-Coins:{:.2f}.".
+          format(cash, coin_asset['mona'][0], coin_asset['xrp'][0], coin_asset['btc'][0], coin_asset['bcc'][0]))
     sys.stdout.flush()
-    return cash, coins
+    assets_log = pd.read_csv("./assets/assets-log.csv")
+    cur_asset = [query_time, cash] + coin_record + [total]
+    assets_log.append(pd.DataFrame(cur_asset,
+                      columns=['time', 'jpy', 'mona', 'mona_jpy',
+                               'xrp', 'xrp_jpy', 'bcc', 'bcc_jpy',
+                               'btc', 'btc_jpy', 'estimation']))
+    assets_log.to_csv("./assets/assets-log.csv")
+    return cash, coin_asset[coin_name]
 
 
-def make_decison(infos):
+def make_decison(infos, tmp_pred):
     # make decison on 30 min trading records
     # decison ->[trade_or_not, pair, volumn]
     orders = []
@@ -57,7 +74,6 @@ def make_decison(infos):
         print("[prediction] Skip making decison due to poor model accuracy.")
         sys.stdout.flush()
         train_model()
-        return orders
     else:
         record = infos[price_related].values
         record = record - record[0, :]
@@ -65,83 +81,83 @@ def make_decison(infos):
         pred_proba = clf.predict_proba(record)
         trend = trends[np.argmax(pred_proba)]
         confidence = np.max(pred_proba)
-        print("[prediction] Prediction of is {}, confidence is {:.02f}".
+        prev_trend = tmp_pred["trend"]
+        prev_confidence = tmp_pred["confidence"]
+        print("[prediction] Previous trend : {}, confidence : {:.02f}".
+              format(prev_trend, prev_confidence))
+        print("[prediction] Current trend : {}, confidence : {:.02f}".
               format(trend, confidence))
         sys.stdout.flush()
-        if trend == "asce" and confidence > 0.5:
-            # generate order
-            recommend_price = max(infos['bids_max_ref_val'].values)+1
-            recommend_amount = max(infos['asks_min_ref_vol'].values)/5
-            cash_amount, nb_coins = checkout()
-            buy_capacity = cash_amount / recommend_price
-            order_amount = min(buy_capacity/4, recommend_amount)
-            if nb_coins > 50 or order_amount < 0.01:
-                orders = []
-            else:
-                order = {'pair': pair,
-                         'price': recommend_price,
-                         'amount': order_amount,
-                         'side': 'buy',
-                         'type': 'limit'}
-                orders.append(order)
-                return orders
-        elif trend == "desc" and confidence >= 0.5:
-            # sell out when very confidence for descreasing
-            # sell out at market price
-            recommend_price = min(infos['asks_min_ref_val'].values)-1
-            recommend_amount = min(infos['bids_max_ref_vol'].values)/5
-            cash_amount, nb_coins = checkout()
-            order_amount = min(nb_coins/3, recommend_amount)
-            if nb_coins > 0.03:
-                order_1 = {'pair': pair,
-                           'price': recommend_price,
-                           'amount': nb_coins-order_amount,
-                           'side': 'sell',
-                           'type': 'limit'}
-                order_2 = {'pair': pair,
-                           'price': recommend_price,
-                           'amount': order_amount,
-                           'side': 'sell',
-                           'type': 'market'}
-                orders.append(order_1)
-                orders.append(order_2)
-                return orders
+        # when decison is asce, buy some coins
+        if trend == "asce" and prev_trend == "asce":
+            if confidence > 0.5 and prev_confidence > 0.5:
+                # generate order
+                recommend_price = max(infos['bids_max_ref_val'].values)+1
+                recommend_amount = max(infos['asks_min_ref_vol'].values)/5
+                cash_amount, nb_coins = checkout()
+                buy_capacity = cash_amount / recommend_price
+                order_amount = min(buy_capacity/5, recommend_amount)
+                if nb_coins > args.max or order_amount < args.min:
+                    orders = []
+                else:
+                    order = {'pair': pair,
+                             'price': recommend_price,
+                             'amount': order_amount,
+                             'side': 'buy',
+                             'type': 'limit'}
+                    orders.append(order)
             else:
                 orders = []
-                return orders
-        elif trend == "desc" and 0.5 > confidence > 0.3:
-            # sell out when very confidence for descreasing
-            # sell out at market price
-            recommend_price = min(infos['asks_min_ref_val'].values)-1
-            recommend_amount = min(infos['bids_max_ref_vol'].values)/5
-            cash_amount, nb_coins = checkout()
-            order_amount = min(nb_coins/4, recommend_amount)
-            if order_amount < 0.01:
-                orders = []
-                return orders
+        # when decison is desc, sell some coins
+        elif trend == "desc" and prev_trend == "desc":
+            if confidence > 0.4 and prev_confidence > 0.4:
+                # sell 1/3 when very confidence for descreasing
+                recommend_price = min(infos['asks_min_ref_val'].values)-1
+                recommend_amount = min(infos['bids_max_ref_vol'].values)/5
+                cash_amount, nb_coins = checkout()
+                order_amount = min(nb_coins/3, recommend_amount)
+                if nb_coins > 3*args.min:
+                    order_1 = {'pair': pair,
+                               'price': recommend_price,
+                               'amount': nb_coins-order_amount,
+                               'side': 'sell',
+                               'type': 'limit'}
+                    order_2 = {'pair': pair,
+                               'price': recommend_price,
+                               'amount': order_amount,
+                               'side': 'sell',
+                               'type': 'market'}
+                    orders.append(order_1)
+                    orders.append(order_2)
+                else:
+                    orders = []
             else:
-                order = {'pair': pair,
-                         'price': recommend_price,
-                         'amount': order_amount,
-                         'side': 'sell',
-                         'type': 'limit'}
-                orders.append(order)
-                return orders
+                # sell part of coins when not so confidence
+                recommend_price = min(infos['asks_min_ref_val'].values)-1
+                recommend_amount = min(infos['bids_max_ref_vol'].values)/5
+                cash_amount, nb_coins = checkout()
+                order_amount = min(nb_coins/4, recommend_amount)
+                if order_amount < 0.01:
+                    orders = []
+                    return orders
+                else:
+                    order = {'pair': pair,
+                             'price': recommend_price,
+                             'amount': order_amount,
+                             'side': 'sell',
+                             'type': 'limit'}
+                    orders.append(order)
         else:
             orders = []
-            return orders
+        tmp_pred = {"trend":trend, "confidence":confidence}
+        return orders, tmp_pred
 
 
 def send_orders(orders):
     # make orders base on the decison
     for order in orders:
-        tradeApi.order(order['pair'],
-                       '{:.2f}'.format(order['price']),
-                       '{:.2f}'.format(order['amount']),
-                       order['side'],
-                       order['type'])
-        time.sleep(20)
-        print("[order] Sending order:")
+        order_time = time.strftime("%Y%m%d-%H-%M")
+        print("[order] Sending order at {}.".format(order_time))
         print("[order] Pair:{} ; Price:{} ; Amount:{} ; Side:{} ; Type:{}.".
               format(order['pair'],
                      '{:.2f}'.format(order['price']),
@@ -149,6 +165,12 @@ def send_orders(orders):
                      order['side'],
                      order['type']))
         sys.stdout.flush()
+        tradeApi.order(order['pair'],
+                       '{:.2f}'.format(order['price']),
+                       '{:.2f}'.format(order['amount']),
+                       order['side'],
+                       order['type'])
+        time.sleep(10)
     return 0
 
 
@@ -220,39 +242,55 @@ if __name__ == "__main__":
                         help='trading platform bitbank or zaif')
     parser.add_argument('-coin', type=str, default="mona", dest="coin",
                         help='coin in [xrp, mona, bcc, btc] for loging ')
-    parser.add_argument('-interval', type=int, default=15, dest="interval",
+    parser.add_argument('-interval', type=int, default=10, dest="interval",
                         help='time interval(/sec) for extracting information')
+    parser.add_argument('-max', type=int, default=50, dest="max",
+                        help='max number of coins')
+    parser.add_argument('-min', type=float, default=0.01, dest="min",
+                        help='min number for trading')
     args = parser.parse_args()
 
     # load initial setting and set global parameters
     config = pd.read_json('config.json')
-    avalible_pairs = config[args.platform]['trade_pairs']
+    tradable_coins = config[args.platform]['coins']
+    if args.coin not in tradable_coins:
+        raise ValueError("Coin of {} to jpy is not tradable in {}".format(args.coin, args.platform))
     pair = '{}_jpy'.format(args.coin)
-    if pair not in avalible_pairs:
-        raise ValueError("Coin of {} to jpy is not avaliable in {}".format(args.coin, args.platform))
-    print("Autotrading of {} in {}...".format(pair,  args.platform))
+    print("[start] Autotrading of {} in {}...".format(pair,  args.platform))
     sys.stdout.flush()
     price_related = ['buy','sell','last',
                      'sells_min_ref_val', 'buys_max_ref_val']
     order_related = ['asks_min_ref_val', 'bids_max_ref_val',
                      'asks_min_ref_vol', 'bids_max_ref_vol']
     trends = ["desc", "cons", "asce"]
+    pubapi = bitbankcc.public()
     refApi = bitbankcc.private(config['{}-ref'.format(args.platform)]['key'],
                                config['{}-ref'.format(args.platform)]['secret'])
     tradeApi = bitbankcc.private(config['{}-trade'.format(args.platform)]['key'],
                                  config['{}-trade'.format(args.platform)]['secret'])
     # initial training of the model
     train_model()
-    schedule.every().day.at("01:30").do(train_model)
+    checkout()
+    schedule.every().day.at("1:30").do(train_model)
+    schedule.every().day.at("11:30").do(train_model)
+    tmp_pred = {"trend":"cons", "confidence":0}
     while True:
         schedule.run_pending()
         time.sleep(1)
         try:
-            infos = access_info(pair, 10)
-            orders = make_decison(infos)
-            if orders:
-                send_orders(orders)
+            infos = access_info(pair, args.interval)
+            try:
+                orders , tmp_pred = make_decison(infos, tmp_pred)
+                try:
+                    if orders:
+                        send_orders(orders)
+                except:
+                    print("[error] Errors in sending order")
+                    sys.stdout.flush()
+            except:
+                print("[error] Error in making decison")
+                sys.stdout.flush()
         except:
-            print("ERROR IN API, Wait 10 min")
+            print("[error] Error with API, Wait 1 min")
             sys.stdout.flush()
-            time.sleep(60*5)
+            time.sleep(60)

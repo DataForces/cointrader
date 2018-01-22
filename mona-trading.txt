@@ -1,0 +1,508 @@
+Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-04-36.
+[model] Training model using dataset of 20180121-20180122 with 43-records
+[model] Training accuracy: 0.977
+[info] Saving log of mona_jpy at 20180122-04-41
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-04-44.
+[model] Training model using dataset of 20180121-20180122 with 44-records
+[model] Training accuracy: 0.977
+[info] Saving log of mona_jpy at 20180122-04-49
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Saving log of mona_jpy at 20180122-04-55
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Saving log of mona_jpy at 20180122-05-00
+[prediction] Prediction of is asce, confidence is 0.60
+[info] Saving log of mona_jpy at 20180122-05-05
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Saving log of mona_jpy at 20180122-05-10
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Saving log of mona_jpy at 20180122-05-15
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Saving log of mona_jpy at 20180122-05-21
+[prediction] Prediction of is desc, confidence is 0.50
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Saving log of mona_jpy at 20180122-05-26
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[info] Saving log of mona_jpy at 20180122-05-31
+[prediction] Prediction of is asce, confidence is 0.63
+[asset] Cash: 59128.83 jpy; Coins: 0.01 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:760.73 ; Amount:19.43 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-05-36
+[prediction] Prediction of is asce, confidence is 0.54
+[info] Saving log of mona_jpy at 20180122-05-41
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 44347.85 jpy; Coins: 19.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:761.90 ; Amount:4.86 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-05-47
+[prediction] Prediction of is desc, confidence is 0.51
+[asset] Cash: 44347.85 jpy; Coins: 19.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:760.44 ; Amount:12.96 ; Side:sell ; Type:limit.
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:760.44 ; Amount:6.48 ; Side:sell ; Type:market.
+Errors in sending order
+[info] Saving log of mona_jpy at 20180122-05-52
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 44347.85 jpy; Coins: 19.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:758.99 ; Amount:4.86 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-05-58
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 44347.85 jpy; Coins: 19.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:757.79 ; Amount:4.86 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-03
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 44347.85 jpy; Coins: 19.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:749.48 ; Amount:4.86 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-09
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 47997.76 jpy; Coins: 14.58 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:763.41 ; Amount:3.64 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-14
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 49743.98 jpy; Coins: 12.29 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:750.80 ; Amount:3.07 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-20
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 52048.94 jpy; Coins: 9.22 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:769.26 ; Amount:2.30 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-25
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 53818.23 jpy; Coins: 6.92 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:797.93 ; Amount:0.76 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-31
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 53818.23 jpy; Coins: 6.92 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:769.51 ; Amount:1.73 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-36
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 55149.49 jpy; Coins: 5.19 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:759.01 ; Amount:1.30 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-42
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 56141.36 jpy; Coins: 3.89 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:792.61 ; Amount:0.97 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-47
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 56141.36 jpy; Coins: 3.89 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:769.56 ; Amount:0.97 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-53
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 56141.36 jpy; Coins: 3.89 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:748.98 ; Amount:0.97 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-06-58
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 56867.88 jpy; Coins: 2.92 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:747.92 ; Amount:0.73 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-04
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 57419.16 jpy; Coins: 2.19 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:749.75 ; Amount:0.55 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-09
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 57831.52 jpy; Coins: 1.64 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:753.49 ; Amount:0.41 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-15
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58140.45 jpy; Coins: 1.23 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:761.89 ; Amount:0.31 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-20
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58376.63 jpy; Coins: 0.92 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:776.21 ; Amount:0.23 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-26
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58555.16 jpy; Coins: 0.69 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:774.58 ; Amount:0.17 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-31
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58688.55 jpy; Coins: 0.52 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:787.83 ; Amount:0.13 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-37
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58790.97 jpy; Coins: 0.39 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:780.91 ; Amount:0.10 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-42
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 58869.06 jpy; Coins: 0.29 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:783.37 ; Amount:0.07 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-48
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58869.06 jpy; Coins: 0.29 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:781.60 ; Amount:0.07 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-53
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58923.80 jpy; Coins: 0.22 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:781.98 ; Amount:0.05 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-07-59
+[prediction] Prediction of is asce, confidence is 0.65
+[asset] Cash: 58923.80 jpy; Coins: 0.22 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:770.10 ; Amount:19.13 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-04
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 44191.79 jpy; Coins: 19.35 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:778.89 ; Amount:4.84 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-10
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 47961.62 jpy; Coins: 14.51 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:779.11 ; Amount:3.63 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-15
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:796.39 ; Amount:2.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-21
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:795.39 ; Amount:2.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-26
+[prediction] Prediction of is desc, confidence is 0.50
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:795.14 ; Amount:2.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-32
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:794.04 ; Amount:2.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-37
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:792.65 ; Amount:2.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-43
+[prediction] Prediction of is asce, confidence is 0.64
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:781.83 ; Amount:16.24 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-48
+[prediction] Prediction of is desc, confidence is 0.50
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:795.97 ; Amount:2.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-54
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 50793.36 jpy; Coins: 10.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:785.75 ; Amount:2.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-08-59
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 52930.60 jpy; Coins: 8.16 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:789.61 ; Amount:2.04 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-05
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 54541.40 jpy; Coins: 6.12 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:789.93 ; Amount:1.53 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-10
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 55749.99 jpy; Coins: 4.59 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:795.98 ; Amount:1.15 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-16
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 56665.37 jpy; Coins: 3.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:794.78 ; Amount:0.86 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-21
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 56665.37 jpy; Coins: 3.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:789.07 ; Amount:0.86 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-27
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 56665.37 jpy; Coins: 3.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:789.28 ; Amount:0.86 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-32
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 57344.15 jpy; Coins: 2.58 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:789.47 ; Amount:0.64 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-38
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 57849.41 jpy; Coins: 1.94 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:793.89 ; Amount:0.48 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-43
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58230.48 jpy; Coins: 1.46 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:794.17 ; Amount:0.36 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-49
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58516.68 jpy; Coins: 1.10 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:789.13 ; Amount:0.27 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-09-54
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58729.75 jpy; Coins: 0.83 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:791.40 ; Amount:0.21 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-00
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 58895.94 jpy; Coins: 0.62 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:794.07 ; Amount:0.15 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-05
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59015.27 jpy; Coins: 0.47 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:798.26 ; Amount:0.12 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-11
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59111.06 jpy; Coins: 0.35 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:798.62 ; Amount:0.09 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-16
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 59182.94 jpy; Coins: 0.26 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:797.97 ; Amount:0.06 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-22
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59230.85 jpy; Coins: 0.20 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:797.57 ; Amount:0.05 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-27
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 59270.73 jpy; Coins: 0.15 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:796.97 ; Amount:0.04 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-33
+[prediction] Prediction of is asce, confidence is 0.65
+[asset] Cash: 59270.73 jpy; Coins: 0.15 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:790.41 ; Amount:18.75 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-38
+[prediction] Prediction of is asce, confidence is 0.61
+[asset] Cash: 59270.73 jpy; Coins: 0.15 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:791.02 ; Amount:18.73 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-44
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 44454.93 jpy; Coins: 18.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:794.04 ; Amount:4.72 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-49
+[prediction] Prediction of is asce, confidence is 0.65
+[asset] Cash: 44454.93 jpy; Coins: 18.88 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:787.47 ; Amount:14.11 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-10-55
+[prediction] Prediction of is desc, confidence is 0.50
+[asset] Cash: 33343.73 jpy; Coins: 32.99 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:789.16 ; Amount:8.25 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-00
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 33343.73 jpy; Coins: 32.99 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:787.07 ; Amount:8.25 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-06
+[prediction] Prediction of is asce, confidence is 0.56
+[info] Saving log of mona_jpy at 20180122-11-11
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 33343.73 jpy; Coins: 32.99 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:779.02 ; Amount:8.25 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-16
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 33343.73 jpy; Coins: 32.99 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:777.22 ; Amount:8.25 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-22
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 33343.73 jpy; Coins: 32.99 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:775.95 ; Amount:8.25 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-27
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 33343.73 jpy; Coins: 32.99 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:774.64 ; Amount:8.25 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-33
+[prediction] Prediction of is desc, confidence is 0.49
+[asset] Cash: 33343.73 jpy; Coins: 32.99 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:769.36 ; Amount:8.25 ; Side:sell ; Type:limit.
+[model] Training model at 20180122-11-33.
+[model] Training model using dataset of 20180121-20180122 with 181-records
+[model] Training accuracy: 0.950
+[info] Saving log of mona_jpy at 20180122-11-38
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 39701.84 jpy; Coins: 24.74 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:773.60 ; Amount:5.18 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-44
+[prediction] Prediction of is desc, confidence is 0.47
+[asset] Cash: 43709.08 jpy; Coins: 19.56 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:775.95 ; Amount:4.89 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-11-49
+[prediction] Prediction of is asce, confidence is 0.46
+[info] Saving log of mona_jpy at 20180122-11-55
+[prediction] Prediction of is asce, confidence is 0.45
+[info] Saving log of mona_jpy at 20180122-12-00
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 47503.48 jpy; Coins: 14.67 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:769.11 ; Amount:3.67 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-05
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 50355.07 jpy; Coins: 11.00 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:769.00 ; Amount:2.75 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-11
+[prediction] Prediction of is asce, confidence is 0.61
+[asset] Cash: 52469.82 jpy; Coins: 8.25 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:763.13 ; Amount:17.19 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-16
+[prediction] Prediction of is asce, confidence is 0.50
+[info] Saving log of mona_jpy at 20180122-12-21
+[prediction] Prediction of is asce, confidence is 0.52
+[info] Saving log of mona_jpy at 20180122-12-27
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 39351.61 jpy; Coins: 25.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:768.29 ; Amount:4.64 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-32
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 39351.61 jpy; Coins: 25.44 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:760.45 ; Amount:6.36 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-38
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 44188.07 jpy; Coins: 19.08 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:763.00 ; Amount:4.77 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-43
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 47827.59 jpy; Coins: 14.31 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:763.54 ; Amount:3.58 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-49
+[prediction] Prediction of is desc, confidence is 0.48
+[asset] Cash: 50561.06 jpy; Coins: 10.73 .
+[order] Sending order:
+[order] Pair:mona_jpy ; Price:763.15 ; Amount:2.68 ; Side:sell ; Type:limit.
+[info] Saving log of mona_jpy at 20180122-12-54
+[prediction] Prediction of is asce, confidence is 0.60
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-12-56.
+[model] Training model using dataset of 20180121-20180122 with 204-records
+[model] Training accuracy: 0.951
+[info] Saving log of mona_jpy at 20180122-13-02
+Error in making decison
+[info] Saving log of mona_jpy at 20180122-13-07
+Error in making decison
+[info] Saving log of mona_jpy at 20180122-13-12
+Error in making decison
+[info] Saving log of mona_jpy at 20180122-13-17
+Error in making decison
+[info] Saving log of mona_jpy at 20180122-13-22
+Error in making decison
+[info] Saving log of mona_jpy at 20180122-13-27
+Error in making decison
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-13-31.
+[model] Training model using dataset of 20180121-20180122 with 210-records
+[model] Training accuracy: 0.952
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-13-34.
+[model] Training model using dataset of 20180121-20180122 with 210-records
+[model] Training accuracy: 0.952
+[info] Saving log of mona_jpy at 20180122-13-40
+[prediction] Previous trend : cons, confidence : 0.00
+[prediction] Current trend : desc, confidence : 0.49
+[info] Saving log of mona_jpy at 20180122-13-45
+[prediction] Previous trend : desc, confidence : 0.49
+[prediction] Current trend : desc, confidence : 0.42
+[info] Saving log of mona_jpy at 20180122-13-50
+[prediction] Previous trend : desc, confidence : 0.42
+[prediction] Current trend : desc, confidence : 0.42
+[info] Saving log of mona_jpy at 20180122-13-55
+[prediction] Previous trend : desc, confidence : 0.42
+[prediction] Current trend : desc, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-14-00
+[prediction] Previous trend : desc, confidence : 0.47
+[prediction] Current trend : desc, confidence : 0.49
+[info] Saving log of mona_jpy at 20180122-14-05
+[prediction] Previous trend : desc, confidence : 0.49
+[prediction] Current trend : desc, confidence : 0.42
+[info] Saving log of mona_jpy at 20180122-14-11
+[prediction] Previous trend : desc, confidence : 0.42
+[prediction] Current trend : asce, confidence : 0.60
+[info] Saving log of mona_jpy at 20180122-14-16
+[prediction] Previous trend : asce, confidence : 0.60
+[prediction] Current trend : desc, confidence : 0.50
+[info] Saving log of mona_jpy at 20180122-14-21
+[prediction] Previous trend : desc, confidence : 0.50
+[prediction] Current trend : asce, confidence : 0.61
+[info] Saving log of mona_jpy at 20180122-14-26
+[prediction] Previous trend : asce, confidence : 0.61
+[prediction] Current trend : desc, confidence : 0.42
+[info] Saving log of mona_jpy at 20180122-14-31
+[prediction] Previous trend : desc, confidence : 0.42
+[prediction] Current trend : desc, confidence : 0.50
+[info] Saving log of mona_jpy at 20180122-14-36
+[prediction] Previous trend : desc, confidence : 0.50
+[prediction] Current trend : asce, confidence : 0.43
+[info] Saving log of mona_jpy at 20180122-14-42
+[prediction] Previous trend : asce, confidence : 0.43
+[prediction] Current trend : desc, confidence : 0.50
+[info] Saving log of mona_jpy at 20180122-14-47
+[prediction] Previous trend : desc, confidence : 0.50
+[prediction] Current trend : desc, confidence : 0.67
+[info] Saving log of mona_jpy at 20180122-14-52
+[prediction] Previous trend : desc, confidence : 0.67
+[prediction] Current trend : desc, confidence : 0.43
+[info] Saving log of mona_jpy at 20180122-14-57
+[prediction] Previous trend : desc, confidence : 0.43
+[prediction] Current trend : desc, confidence : 0.50
+[info] Saving log of mona_jpy at 20180122-15-02
+[prediction] Previous trend : desc, confidence : 0.50
+[prediction] Current trend : desc, confidence : 0.50
+[info] Saving log of mona_jpy at 20180122-15-07
+[prediction] Previous trend : desc, confidence : 0.50
+[prediction] Current trend : desc, confidence : 0.50
+[info] Saving log of mona_jpy at 20180122-15-12
+[prediction] Previous trend : desc, confidence : 0.50
+[prediction] Current trend : desc, confidence : 0.50

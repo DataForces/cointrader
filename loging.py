@@ -10,6 +10,8 @@ import numpy as np
 import pandas as pd
 import time
 import os
+import sys
+import argparse
 import python_bitbankcc as bitbankcc
 
 
@@ -88,10 +90,21 @@ def access_info(pair, interval=10):
 
 if __name__ == "__main__":
     # posiblle pair (jpy) for trading of bitbank.cc
+    # access args
+    parser = argparse.ArgumentParser(description='Argument for loging')
+    parser.add_argument('-platform', type=str, default="bitbank", dest="platform",
+                        help='trading platform bitbank or zaif')
+    parser.add_argument('-coin', type=str, default="mona", dest="coin",
+                        help='coin in [xrp, mona, bcc, btc] for loging ')
+    parser.add_argument('-interval', type=int, default=10, dest="interval",
+                        help='time interval(/sec) for extracting information')
+    args = parser.parse_args()
+    pair = '{}_jpy'.format(args.coin)
     while True:
         try:
-            access_info('mona_jpy', 10)
+            access_info(pair, args.interval)
         except:
-            print('API Error')
-            # wait 5 min and continue
-            time.sleep(5 * 60)
+            print('[error] API Error, wait 1 min')
+            sys.stdout.flush()
+            # wait 1 min and continue
+            time.sleep(60)
