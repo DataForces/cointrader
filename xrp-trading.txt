@@ -7,3 +7,150 @@
 [model] 0-Samples in 20180121.
 [model] 46-Samples in 20180122.
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[start] Autotrading of xrp_jpy in bitbank...
+[error] NOT enough lablel for training label.
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset
+[info] Saving log of xrp_jpy at 20180122-18-22
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-18-27
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-18-32
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-18-37
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-18-42
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-18-47
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-18-53
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-18-58
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-03
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-08
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-13
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-18
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-24
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-29
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-34
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-39
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-44
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-49
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-19-55
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-20-00
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-20-05
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-20-10
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-20-15
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-20-20
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[error] Error with API, Wait 1 min
+[info] Saving log of xrp_jpy at 20180122-20-28
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-20-33
+[error] NOT enough lablel for training label.
+[error] Error in making decison
+[info] Saving log of xrp_jpy at 20180122-20-38
+[model] Training model at 20180122-20-38.
+[model] Training dataset: 20180122 , with 73-records
+[model] Training accuracy: 0.959
+[prediction] Previous trend : desc, confidence : 0.50
+[prediction] Current trend : cons, confidence : 0.92
+[info] Saving log of xrp_jpy at 20180122-20-43
+[prediction] Previous trend : cons, confidence : 0.92
+[prediction] Current trend : cons, confidence : 0.95
+[info] Saving log of xrp_jpy at 20180122-20-48
+[prediction] Previous trend : cons, confidence : 0.95
+[prediction] Current trend : cons, confidence : 0.95
+[info] Saving log of xrp_jpy at 20180122-20-53
+[prediction] Previous trend : cons, confidence : 0.95
+[prediction] Current trend : cons, confidence : 0.92
+[info] Saving log of xrp_jpy at 20180122-20-59
+[prediction] Previous trend : cons, confidence : 0.92
+[prediction] Current trend : cons, confidence : 0.88
+[info] Saving log of xrp_jpy at 20180122-21-04
+[prediction] Previous trend : cons, confidence : 0.88
+[prediction] Current trend : cons, confidence : 0.92
+[info] Saving log of xrp_jpy at 20180122-21-09
+[prediction] Previous trend : cons, confidence : 0.92
+[prediction] Current trend : cons, confidence : 0.94
+[info] Saving log of xrp_jpy at 20180122-21-14
+[prediction] Previous trend : cons, confidence : 0.94
+[prediction] Current trend : cons, confidence : 0.95
+[info] Saving log of xrp_jpy at 20180122-21-19
+[prediction] Previous trend : cons, confidence : 0.95
+[prediction] Current trend : cons, confidence : 0.89
+[info] Saving log of xrp_jpy at 20180122-21-25
+[prediction] Previous trend : cons, confidence : 0.89
+[prediction] Current trend : cons, confidence : 0.96
+[info] Saving log of xrp_jpy at 20180122-21-30
+[prediction] Previous trend : cons, confidence : 0.96
+[prediction] Current trend : cons, confidence : 0.89
+[info] Saving log of xrp_jpy at 20180122-21-35
+[prediction] Previous trend : cons, confidence : 0.89
+[prediction] Current trend : cons, confidence : 0.95
+[error] Error with API, Wait 1 min
+[info] Saving log of xrp_jpy at 20180122-21-44
+[prediction] Previous trend : cons, confidence : 0.95
+[prediction] Current trend : cons, confidence : 0.96
+[info] Saving log of xrp_jpy at 20180122-21-49
+[prediction] Previous trend : cons, confidence : 0.96
+[prediction] Current trend : cons, confidence : 0.94
+[info] Saving log of xrp_jpy at 20180122-21-54
+[prediction] Previous trend : cons, confidence : 0.94
+[prediction] Current trend : cons, confidence : 0.91
+[info] Saving log of xrp_jpy at 20180122-21-59
+[prediction] Previous trend : cons, confidence : 0.91
+[prediction] Current trend : cons, confidence : 0.95
+[start] Autotrading of xrp_jpy in bitbank...
+[model] Training model at 20180122-22-02.
+[model] Training dataset: 20180122 , with 88-records
+[model] Training accuracy: 0.739
+[asset] Cash(JPY):25474.02; MONA-Coins:0.03; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset
+[info] Saving log of xrp_jpy at 20180122-22-07
+[prediction] Skip making decison due to poor model accuracy.
+[model] Training model at 20180122-22-07.
+[model] Training dataset: 20180122 , with 89-records
+[model] Training accuracy: 0.719
+[error] Error in making decison

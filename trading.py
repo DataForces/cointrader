@@ -284,9 +284,9 @@ if __name__ == "__main__":
     # initial training of the model
     train_model()
     checkout()
-    schedule.every(6).hours.do(train_model)
+    schedule.every(4).hours.do(train_model)
     schedule.every().day.at("01:30").do(train_model)
-    tmp_pred = {"trend":"desc", "confidence":0.5}
+    tmp_pred = {"trend":"cons", "confidence":0.0}
     while True:
         schedule.run_pending()
         time.sleep(1)
