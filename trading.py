@@ -58,8 +58,6 @@ def checkout():
     assets_log = pd.read_csv("./assets/assets-log.csv")
     assets_log = assets_log.append(cur_asset, ignore_index=True)
     assets_log.to_csv("./assets/assets-log.csv", index=False)
-    print("[info] Loging asset")
-    sys.stdout.flush()
     return cash, coin_asset[coin_name][0]
 
 
@@ -75,9 +73,24 @@ def make_decison(infos, tmp_pred):
         clf, quality = train_model()
 
     if float(quality['training_acc']) < 0.8:
-        print("[prediction] Skip making decison due to poor model accuracy.")
+        print("[prediction] Poor model accuracy. Selling part of coins.")
         sys.stdout.flush()
-        train_model()
+        # sell part of coins when not so confidence
+        recommend_price = min(infos['asks_min_ref_val'].values)-1
+        recommend_amount = min(infos['bids_max_ref_vol'].values)/5
+        cash_amount, nb_coins = checkout()
+        order_amount = min(nb_coins/5, recommend_amount)
+        if order_amount < 0.01:
+            orders = []
+        else:
+            order = {'pair': pair,
+                     'price': recommend_price,
+                     'amount': order_amount,
+                     'side': 'sell',
+                     'type': 'limit'}
+            orders.append(order)
+        tmp_pred = {"trend":"cons", "confidence":0.0}
+	    train_model()
     else:
         record = infos[price_related].values
         record = record - record[0, :]
@@ -154,7 +167,7 @@ def make_decison(infos, tmp_pred):
         else:
             orders = []
         tmp_pred = {"trend":trend, "confidence":confidence}
-        return orders, tmp_pred
+    return orders, tmp_pred
 
 
 def send_orders(orders):

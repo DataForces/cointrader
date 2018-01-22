@@ -1,1 +1,1 @@
-python trading.py -coin xrp | tee -a xrp-trading.txt
+python trading.py -coin xrp -max 2500 -interval 15 | tee -a xrp-trading.txt

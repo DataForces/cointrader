@@ -961,3 +961,69 @@ nb_coin <class 'numpy.float32'> coin_jpy <class 'str'>
 [model] Training accuracy: 0.926
 [asset] Cash(JPY):25474.02; MONA-Coins:0.03; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
 [info] Loging asset
+[info] Saving log of mona_jpy at 20180122-22-09
+[prediction] Previous trend : cons, confidence : 0.00
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-22-14
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-22-19
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-22-24
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-22-29
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-22-33.
+[model] Training dataset: 20180121-20180122 , with 301-records
+[model] Training accuracy: 0.927
+[asset] Cash(JPY):57224.02; MONA-Coins:0.03; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset
+[error] Error with API, Wait 1 min
+[info] Saving log of mona_jpy at 20180122-22-55
+[prediction] Previous trend : cons, confidence : 0.00
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-23-05
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-23-15
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-23-25
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-23-35
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-23-45
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-23-56
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180123-00-06
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.47
+[info] Saving log of mona_jpy at 20180123-00-16
+[prediction] Previous trend : asce, confidence : 0.47
+[prediction] Current trend : desc, confidence : 0.46
+[info] Saving log of mona_jpy at 20180123-00-26
+[prediction] Previous trend : desc, confidence : 0.46
+[prediction] Current trend : asce, confidence : 0.47
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180123-00-35.
+[model] Training dataset: 20180122-20180123 , with 278-records
+[model] Training accuracy: 0.932
+[asset] Cash(JPY):112138.99; MONA-Coins:0.03; XRP-Coins:1500.00; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Saving log of mona_jpy at 20180123-00-43
+[prediction] Previous trend : cons, confidence : 0.00
+[prediction] Current trend : asce, confidence : 0.46
+[info] Saving log of mona_jpy at 20180123-00-50
+[prediction] Previous trend : asce, confidence : 0.46
+[prediction] Current trend : asce, confidence : 0.46
+[info] Saving log of mona_jpy at 20180123-00-58
+[prediction] Previous trend : asce, confidence : 0.46
+[prediction] Current trend : desc, confidence : 0.46

@@ -1,1 +1,1 @@
-python trading.py -coin mona | tee -a mona-trading.txt
+python trading.py -coin mona -max 100 -interval 15 | tee -a mona-trading.txt
