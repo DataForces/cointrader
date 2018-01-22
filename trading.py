@@ -45,17 +45,21 @@ def checkout():
         coin_jpy = pubapi.get_ticker('{}_jpy'.format(_coin))['last']
         coin_asset[_coin] = [nb_coin, float(coin_jpy)]
         coin_record += coin_asset[_coin]
-        total += nb_coin * coin_jpy
+        total += (nb_coin * float(coin_jpy))
     print("[asset] Cash(JPY):{:.2f}; MONA-Coins:{:.2f}; XRP-Coins:{:.2f}; BTC-Coins:{:.2f}; BCC-Coins:{:.2f}.".
           format(cash, coin_asset['mona'][0], coin_asset['xrp'][0], coin_asset['btc'][0], coin_asset['bcc'][0]))
     sys.stdout.flush()
-    assets_log = pd.read_csv("./assets/assets-log.csv")
     cur_asset = [query_time, cash] + coin_record + [total]
-    assets_log.append(pd.DataFrame(cur_asset,
-                      columns=['time', 'jpy', 'mona', 'mona_jpy',
-                               'xrp', 'xrp_jpy', 'bcc', 'bcc_jpy',
-                               'btc', 'btc_jpy', 'estimation']))
-    assets_log.to_csv("./assets/assets-log.csv")
+    cur_asset = pd.DataFrame([cur_asset],
+                             columns=['time', 'jpy', 'mona', 'mona_jpy',
+                                      'xrp', 'xrp_jpy', 'btc', 'btc_jpy',
+                                      'bcc', 'bcc_jpy', 'estimation'])
+
+    assets_log = pd.read_csv("./assets/assets-log.csv")
+    assets_log = assets_log.append(cur_asset, ignore_index=True)
+    assets_log.to_csv("./assets/assets-log.csv", index=False)
+    print("[info] Loging asset")
+    sys.stdout.flush()
     return cash, coin_asset[coin_name]
 
 
@@ -271,8 +275,8 @@ if __name__ == "__main__":
     # initial training of the model
     train_model()
     checkout()
-    schedule.every().day.at("1:30").do(train_model)
-    schedule.every().day.at("11:30").do(train_model)
+    schedule.every(6).hour.do(train_model)
+    schedule.every().day.at("01:30").do(train_model)
     tmp_pred = {"trend":"cons", "confidence":0}
     while True:
         schedule.run_pending()

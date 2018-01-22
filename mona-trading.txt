@@ -506,3 +506,79 @@ Error in making decison
 [info] Saving log of mona_jpy at 20180122-15-12
 [prediction] Previous trend : desc, confidence : 0.50
 [prediction] Current trend : desc, confidence : 0.50
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-18.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-20.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-21.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-22.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+nb_coin <class 'numpy.float32'> coin_jpy <class 'str'>
+nb_coin <class 'numpy.float32'> coin_jpy <class 'str'>
+nb_coin <class 'numpy.float32'> coin_jpy <class 'str'>
+nb_coin <class 'numpy.float32'> coin_jpy <class 'str'>
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-26.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-31.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset              time           jpy    mona  mona_jpy         xrp  xrp_jpy  bcc  \
+0  20180122-15-31  52606.300781  8.0477   763.464  393.473297  158.019  0.0   
+
+     bcc_jpy  btc   btc_jpy     estimation  
+0  1319816.0  0.0  200000.0  120926.686897  
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-32.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset              time           jpy    mona  mona_jpy         xrp  xrp_jpy  bcc  \
+0  20180122-15-32  52606.300781  8.0477     763.0  393.473297    158.1  0.0   
+
+     bcc_jpy  btc   btc_jpy     estimation  
+0  1323165.0  0.0  200000.0  120954.824101  
+[info] Loging asset              time           jpy    mona  mona_jpy         xrp  xrp_jpy  bcc  \
+0  20180122-15-32  52606.300781  8.0477     763.0  393.473297    158.1  0.0   
+
+     bcc_jpy  btc   btc_jpy     estimation  
+0  1323165.0  0.0  200000.0  120954.824101  
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-37.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset              time           jpy    mona  mona_jpy         xrp  xrp_jpy  bcc  \
+0  20180122-15-37  52606.300781  8.0477     763.0  393.473297  158.537  0.0   
+
+     bcc_jpy  btc   btc_jpy     estimation  
+0  1321510.0  0.0  200000.0  121126.771932  
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-43.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset
+[start] Autotrading of mona_jpy in bitbank...
+[model] Training model at 20180122-15-47.
+[model] Training model using dataset of 20180121-20180122 with 229-records
+[model] Training accuracy: 0.930
+[asset] Cash(JPY):52606.30; MONA-Coins:8.05; XRP-Coins:393.47; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Loging asset
+[info] Saving log of mona_jpy at 20180122-15-53
+[prediction] Previous trend : cons, confidence : 0.00
+[prediction] Current trend : desc, confidence : 0.47
