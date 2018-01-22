@@ -582,3 +582,6 @@ nb_coin <class 'numpy.float32'> coin_jpy <class 'str'>
 [info] Saving log of mona_jpy at 20180122-15-53
 [prediction] Previous trend : cons, confidence : 0.00
 [prediction] Current trend : desc, confidence : 0.47
+[info] Saving log of mona_jpy at 20180122-15-58
+[prediction] Previous trend : desc, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.46

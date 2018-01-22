@@ -181,15 +181,20 @@ def send_orders(orders):
 def train_model():
     # train models for making prediction
     cur_date, cur_time = time.strftime("%Y%m%d,%H-%M").split(',')
+    prev_date = str(int(cur_date)-1)
     X_train_cur, y_train_cur = np.array([]), []
+    X_train_prev, y_train_prev = np.array([]), []
     if os.path.exists("./log/{}/{}/".format(pair, cur_date)):
         X_train_cur, y_train_cur = generate_training_data(cur_date)
-    prev_date = str(int(cur_date)-1)
-    X_train_prev, y_train_prev = generate_training_data(prev_date)
+    if os.path.exists("./log/{}/{}/".format(pair, prev_date)):
+        X_train_prev, y_train_prev = generate_training_data(prev_date)
 
     if len(y_train_cur) == 0:
         X_train, y_train = X_train_prev, y_train_prev
         dataset = prev_date
+    elif len(y_train_prev) == 0:
+        X_train, y_train = X_train_cur, y_train_cur
+        dataset = cur_date
     else:
         X_train = np.concatenate((X_train_cur, X_train_prev), axis=0)
         y_train = y_train_cur+y_train_prev
