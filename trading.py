@@ -60,7 +60,7 @@ def checkout():
     assets_log.to_csv("./assets/assets-log.csv", index=False)
     print("[info] Loging asset")
     sys.stdout.flush()
-    return cash, coin_asset[coin_name]
+    return cash, coin_asset[coin_name][0]
 
 
 def make_decison(infos, tmp_pred):
@@ -188,7 +188,7 @@ def train_model():
         X_train_cur, y_train_cur = generate_training_data(cur_date)
     if os.path.exists("./log/{}/{}/".format(pair, prev_date)):
         X_train_prev, y_train_prev = generate_training_data(prev_date)
-
+    sys.stdout.flush()
     if len(y_train_cur) == 0:
         X_train, y_train = X_train_prev, y_train_prev
         dataset = prev_date
@@ -203,18 +203,22 @@ def train_model():
         clf = joblib.load("./models/trend_{}_clf.pkl".format(pair))
     else:
         clf = SVC(probability=True)
-    clf.fit(X_train, y_train)
-    score = clf.score(X_train, y_train)
-    print("[model] Training model at {}-{}.".format(cur_date, cur_time))
-    print("[model] Training model using dataset of {} with {}-records".format(dataset, len(y_train)))
-    print("[model] Training accuracy: %.03f" % score)
-    sys.stdout.flush()
-    # save model
-    joblib.dump(clf, "./models/trend_{}_clf.pkl".format(pair))
-    quality = {"training_acc":score}
-    with open('./models/{}_quality.json'.format(pair), 'w') as fp:
-        json.dump(quality, fp)
-    return clf, quality
+    _labels = np.unique(y_train)
+    if _labels.shape[0] == 3:
+        clf.fit(X_train, y_train)
+        score = clf.score(X_train, y_train)
+        print("[model] Training model at {}-{}.".format(cur_date, cur_time))
+        print("[model] Training dataset: {} , with {}-records".format(dataset, len(y_train)))
+        print("[model] Training accuracy: %.03f" % score)
+        sys.stdout.flush()
+        # save model
+        joblib.dump(clf, "./models/trend_{}_clf.pkl".format(pair))
+        quality = {"training_acc":score}
+        with open('./models/{}_quality.json'.format(pair), 'w') as fp:
+            json.dump(quality, fp)
+        return clf, quality
+    else:
+        print("[error] NOT enough lablel for training label.")
 
 
 def generate_training_data(date):
@@ -280,9 +284,9 @@ if __name__ == "__main__":
     # initial training of the model
     train_model()
     checkout()
-    schedule.every(6).hour.do(train_model)
+    schedule.every(6).hours.do(train_model)
     schedule.every().day.at("01:30").do(train_model)
-    tmp_pred = {"trend":"cons", "confidence":0}
+    tmp_pred = {"trend":"desc", "confidence":0.5}
     while True:
         schedule.run_pending()
         time.sleep(1)
@@ -303,3 +307,11 @@ if __name__ == "__main__":
             print("[error] Error with API, Wait 1 min")
             sys.stdout.flush()
             time.sleep(60)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
+    #     infos = access_info(pair, args.interval)
+    #     orders, tmp_pred = make_decison(infos, tmp_pred)
+    #     if orders:
+    #         send_orders(orders)
+    #     time.sleep(60)
