@@ -1447,3 +1447,28 @@ nb_coin <class 'numpy.float32'> coin_jpy <class 'str'>
 [asset] Cash(JPY):201365.50; MONA-Coins:167.08; XRP-Coins:36.98; BTC-Coins:0.00; BCC-Coins:0.00.
 [order] Sending order at 20180123-12-14.
 [order] Pair:mona_jpy ; Price:779.94 ; Amount:51.64 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180123-12-20
+[prediction] Previous trend : asce, confidence : 0.46
+[prediction] Current trend : asce, confidence : 0.46
+[asset] Cash(JPY):161263.31; MONA-Coins:218.72; XRP-Coins:29.58; BTC-Coins:0.00; BCC-Coins:0.00.
+[order] Sending order at 20180123-12-20.
+[order] Pair:mona_jpy ; Price:766.73 ; Amount:42.07 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180123-12-25
+[prediction] Previous trend : asce, confidence : 0.46
+[prediction] Current trend : asce, confidence : 0.46
+[asset] Cash(JPY):161263.31; MONA-Coins:218.72; XRP-Coins:29.58; BTC-Coins:0.00; BCC-Coins:0.00.
+[order] Sending order at 20180123-12-25.
+[order] Pair:mona_jpy ; Price:775.03 ; Amount:41.61 ; Side:buy ; Type:limit.
+[info] Saving log of mona_jpy at 20180123-12-30
+[prediction] Previous trend : asce, confidence : 0.46
+[prediction] Current trend : asce, confidence : 0.46
+[asset] Cash(JPY):130987.16; MONA-Coins:260.33; XRP-Coins:23.66; BTC-Coins:0.00; BCC-Coins:0.00.
+[info] Saving log of mona_jpy at 20180123-12-35
+[prediction] Previous trend : asce, confidence : 0.46
+[prediction] Current trend : desc, confidence : 0.47
+[info] Saving log of mona_jpy at 20180123-12-41
+[prediction] Previous trend : desc, confidence : 0.47
+[prediction] Current trend : asce, confidence : 0.46
+[info] Saving log of mona_jpy at 20180123-12-46
+[prediction] Previous trend : asce, confidence : 0.46
+[prediction] Current trend : desc, confidence : 0.46

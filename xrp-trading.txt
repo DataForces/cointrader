@@ -546,3 +546,51 @@
 [model] Training accuracy: 0.667
 [order] Sending order at 20180123-12-13.
 [order] Pair:xrp_jpy ; Price:147.54 ; Amount:9.24 ; Side:sell ; Type:limit.
+[info] Saving log of xrp_jpy at 20180123-12-18
+[prediction] Poor model accuracy. Selling part of coins.
+[asset] Cash(JPY):161263.31; MONA-Coins:218.72; XRP-Coins:36.98; BTC-Coins:0.00; BCC-Coins:0.00.
+[model] Training model at 20180123-12-18.
+[model] Training dataset: 20180122-20180123 , with 103-records
+[model] Training accuracy: 0.612
+[order] Sending order at 20180123-12-18.
+[order] Pair:xrp_jpy ; Price:148.48 ; Amount:7.40 ; Side:sell ; Type:limit.
+[info] Saving log of xrp_jpy at 20180123-12-24
+[prediction] Poor model accuracy. Selling part of coins.
+[asset] Cash(JPY):129006.98; MONA-Coins:218.72; XRP-Coins:36.98; BTC-Coins:0.00; BCC-Coins:0.00.
+[model] Training model at 20180123-12-24.
+[model] Training dataset: 20180122-20180123 , with 104-records
+[model] Training accuracy: 0.615
+[order] Sending order at 20180123-12-24.
+[order] Pair:xrp_jpy ; Price:147.96 ; Amount:7.40 ; Side:sell ; Type:limit.
+[info] Saving log of xrp_jpy at 20180123-12-29
+[prediction] Poor model accuracy. Selling part of coins.
+[asset] Cash(JPY):130109.22; MONA-Coins:260.33; XRP-Coins:29.58; BTC-Coins:0.00; BCC-Coins:0.00.
+[model] Training model at 20180123-12-29.
+[model] Training dataset: 20180122-20180123 , with 105-records
+[model] Training accuracy: 0.619
+[order] Sending order at 20180123-12-29.
+[order] Pair:xrp_jpy ; Price:148.08 ; Amount:5.92 ; Side:sell ; Type:limit.
+[info] Saving log of xrp_jpy at 20180123-12-34
+[prediction] Poor model accuracy. Selling part of coins.
+[asset] Cash(JPY):130987.16; MONA-Coins:260.33; XRP-Coins:23.66; BTC-Coins:0.00; BCC-Coins:0.00.
+[model] Training model at 20180123-12-34.
+[model] Training dataset: 20180122-20180123 , with 106-records
+[model] Training accuracy: 0.613
+[order] Sending order at 20180123-12-34.
+[order] Pair:xrp_jpy ; Price:148.52 ; Amount:4.73 ; Side:sell ; Type:limit.
+[info] Saving log of xrp_jpy at 20180123-12-40
+[prediction] Poor model accuracy. Selling part of coins.
+[asset] Cash(JPY):131689.88; MONA-Coins:260.33; XRP-Coins:18.93; BTC-Coins:0.00; BCC-Coins:0.00.
+[model] Training model at 20180123-12-40.
+[model] Training dataset: 20180122-20180123 , with 107-records
+[model] Training accuracy: 0.636
+[order] Sending order at 20180123-12-40.
+[order] Pair:xrp_jpy ; Price:149.44 ; Amount:3.79 ; Side:sell ; Type:limit.
+[info] Saving log of xrp_jpy at 20180123-12-45
+[prediction] Poor model accuracy. Selling part of coins.
+[asset] Cash(JPY):132256.25; MONA-Coins:260.33; XRP-Coins:15.14; BTC-Coins:0.00; BCC-Coins:0.00.
+[model] Training model at 20180123-12-45.
+[model] Training dataset: 20180122-20180123 , with 108-records
+[model] Training accuracy: 0.630
+[order] Sending order at 20180123-12-45.
+[order] Pair:xrp_jpy ; Price:149.49 ; Amount:3.03 ; Side:sell ; Type:limit.

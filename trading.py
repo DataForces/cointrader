@@ -282,14 +282,14 @@ if __name__ == "__main__":
     if args.coin not in tradable_coins:
         raise ValueError("Coin of {} to jpy is not tradable in {}".format(args.coin, args.platform))
     pair = '{}_jpy'.format(args.coin)
-    if coin == "mona":
+    if args.coin == "mona":
         thredhold = 2.0
-    elif coin == "xrp":
+    elif args.coin == "xrp":
         thredhold = 1.0
-    elif coin == "btc":
-        thredhold = 100:
-    elif coin == "bcc":
-        thredhold = 50:
+    elif args.coin == "btc":
+        thredhold = 10000.0
+    elif args.coin == "bcc":
+        thredhold = 10000.0
     else:
         thredhold = None
     print("[start] Autotrading of {} in {}...".format(pair,  args.platform))
