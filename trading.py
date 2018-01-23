@@ -76,7 +76,7 @@ def make_decison(infos, tmp_pred):
         print("[prediction] Poor model accuracy. Selling part of coins.")
         sys.stdout.flush()
         # sell part of coins when not so confidence
-        recommend_price = min(infos['asks_min_ref_val'].values)-1
+        recommend_price = min(infos['asks_min_ref_val'].values)+0.5
         recommend_amount = min(infos['bids_max_ref_vol'].values)/5
         cash_amount, nb_coins = checkout()
         order_amount = min(nb_coins/5, recommend_amount)
@@ -90,7 +90,7 @@ def make_decison(infos, tmp_pred):
                      'type': 'limit'}
             orders.append(order)
         tmp_pred = {"trend":"cons", "confidence":0.0}
-	    train_model()
+        train_model()
     else:
         record = infos[price_related].values
         record = record - record[0, :]
@@ -107,9 +107,9 @@ def make_decison(infos, tmp_pred):
         sys.stdout.flush()
         # when decison is asce, buy some coins
         if trend == "asce" and prev_trend == "asce":
-            if confidence > 0.5 and prev_confidence > 0.5:
+            if confidence >= 0.45 and prev_confidence > 0.45:
                 # generate order
-                recommend_price = max(infos['bids_max_ref_val'].values)+1
+                recommend_price = max(infos['bids_max_ref_val'].values)-0.1
                 recommend_amount = max(infos['asks_min_ref_vol'].values)/5
                 cash_amount, nb_coins = checkout()
                 buy_capacity = cash_amount / recommend_price
@@ -129,7 +129,7 @@ def make_decison(infos, tmp_pred):
         elif trend == "desc" and prev_trend == "desc":
             if confidence > 0.4 and prev_confidence > 0.4:
                 # sell 1/3 when very confidence for descreasing
-                recommend_price = min(infos['asks_min_ref_val'].values)-1
+                recommend_price = min(infos['asks_min_ref_val'].values)-0.1
                 recommend_amount = min(infos['bids_max_ref_vol'].values)/5
                 cash_amount, nb_coins = checkout()
                 order_amount = min(nb_coins/3, recommend_amount)
@@ -150,7 +150,7 @@ def make_decison(infos, tmp_pred):
                     orders = []
             else:
                 # sell part of coins when not so confidence
-                recommend_price = min(infos['asks_min_ref_val'].values)-1
+                recommend_price = min(infos['asks_min_ref_val'].values)+0.1
                 recommend_amount = min(infos['bids_max_ref_vol'].values)/5
                 cash_amount, nb_coins = checkout()
                 order_amount = min(nb_coins/4, recommend_amount)
@@ -270,7 +270,7 @@ if __name__ == "__main__":
                         help='coin in [xrp, mona, bcc, btc] for loging ')
     parser.add_argument('-interval', type=int, default=10, dest="interval",
                         help='time interval(/sec) for extracting information')
-    parser.add_argument('-max', type=int, default=50, dest="max",
+    parser.add_argument('-max', type=int, default=2000, dest="max",
                         help='max number of coins')
     parser.add_argument('-min', type=float, default=0.01, dest="min",
                         help='min number for trading')
@@ -298,7 +298,6 @@ if __name__ == "__main__":
     train_model()
     checkout()
     schedule.every(4).hours.do(train_model)
-    schedule.every().day.at("01:30").do(train_model)
     tmp_pred = {"trend":"cons", "confidence":0.0}
     while True:
         schedule.run_pending()
