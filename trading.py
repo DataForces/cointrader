@@ -251,9 +251,9 @@ def generate_training_data(date):
             mean_yen = np.mean(np.sum(dif,axis = 0)/dif.shape[0])
             x_substract = records_x[idx-1] - records_x[idx-1][0, :]
             x_matrix.append(x_substract.reshape(1, -1)[:, 5:])
-            if mean_yen < -2:
+            if mean_yen <= -thredhold:
                 labels.append(-1)
-            elif -2 < mean_yen < 2:
+            elif -thredhold < mean_yen <= thredhold:
                 labels.append(0)
             else:
                 labels.append(1)
@@ -282,6 +282,16 @@ if __name__ == "__main__":
     if args.coin not in tradable_coins:
         raise ValueError("Coin of {} to jpy is not tradable in {}".format(args.coin, args.platform))
     pair = '{}_jpy'.format(args.coin)
+    if coin == "mona":
+        thredhold = 2.0
+    elif coin == "xrp":
+        thredhold = 1.0
+    elif coin == "btc":
+        thredhold = 100:
+    elif coin == "bcc":
+        thredhold = 50:
+    else:
+        thredhold = None
     print("[start] Autotrading of {} in {}...".format(pair,  args.platform))
     sys.stdout.flush()
     price_related = ['buy','sell','last',
