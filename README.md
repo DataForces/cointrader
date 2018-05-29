@@ -7,7 +7,7 @@ sudo pip install git+https://github.com/bitbankinc/python-bitbankcc.git
 
 ## setup your key in config.json
 
-{
+> {
 	"bitbank-trade": {
 		"key": "your-trade-key",
 		"secret": "your-trade-passwd"
