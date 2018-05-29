@@ -1,11 +1,11 @@
 {
 	"bitbank-trade": {
-		"key": "c406977f-6cc1-4751-a059-f79124328fb3",
-		"secret": "7cc757e9cf73fcee9e30ebd157816fc35b7a9ac14f10bdfd07bd426b0501b211"
+		"key": "your-trade-key",
+		"secret": "your-trade-passwd"
 	},
 	"bitbank-ref": {
-		"key": "8bcc5834-b311-4d7f-928c-bb12e7e408e1",
-		"secret": "319fe4fef3a0da46fa5d5d0cf8e4f7ee44f357363ade8866a627848c88ac5fad"
+		"key": "your-refer-key",
+		"secret": "your-refer-passwd"
 	},
 	"bitbank": {
 		"coins": ["mona", "xrp", "btc", "bcc"]
